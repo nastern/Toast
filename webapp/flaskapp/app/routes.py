@@ -16,4 +16,5 @@ def LoginRequired(f):
 
 @app.route("/", methods=['GET', 'POST'])
 def index():
+  print("Inside index")
   return render_template('index.html')
