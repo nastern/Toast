@@ -146,10 +146,10 @@ def getTodosForUser(userId):
   '''
   user = getUser(userId)
   user_todos = user['todos']
-  todos = []
+  todos = {}
 
   for todoId in user_todos:
-    todos.append(getTodo(todoId))
+    todos[todoId] = getTodo(todoId)
   print(todos)
   return todos
 
