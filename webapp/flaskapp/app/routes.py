@@ -38,6 +38,18 @@ def login():
 
   return render_template('login.html')
 
+@app.route("/signup", methods=['POST'])
+def signup():
+  name = request.form.get('name')
+  email = request.form.get('email')
+  password = request.form.get('password')
+
+  user = api.createUser(email, password, name)
+  if not user['error']:
+    session['userId'] = user['userId']
+    return redirect(url_for('todos'))
+  return render_template('index.html', err=user['error'])
+
 @LoginRequired
 @app.route("/logout", methods=['GET', 'POST'])
 def logout():

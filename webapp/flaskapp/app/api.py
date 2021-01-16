@@ -2,6 +2,8 @@ from firebase_admin import credentials
 import pyrebase
 import firebase_admin
 from firebase_admin import firestore
+import requests
+import ast
 
 config = {
   "apiKey": "AIzaSyChN6zUmOTt9h6vBSHP72XXSGaOb7o2TaM",
@@ -24,15 +26,22 @@ def createUser(email, password, name):
       name: the name of the new account
 
     returns:
-      userId: the userId of the new user to be stored in the session variable.
+      res: {}
   '''
-
-
-  pyrebase_auth = pyrebase.auth()
-  user = pyrebase_auth.create_user_with_email_and_password(email, password)
-  user = pyrebase_auth.refresh(user['refreshToken'])
+  res = {
+    'userId': None,
+    'error': None,
+  }
+  try:
+    pyrebase_auth = pyrebase.auth()
+    user = pyrebase_auth.create_user_with_email_and_password(email, password)
+    user = pyrebase_auth.refresh(user['refreshToken'])
+  except requests.exceptions.HTTPError as err:
+    res['error'] = "An account with that email already exists. Please log in."
+    return res
 
   userId = user['userId']
+  res['userId'] = userId
 
   db = firestore.client()
   doc_ref = db.collection('users').document(userId)
@@ -44,7 +53,7 @@ def createUser(email, password, name):
     'name': name
   })
 
-  return userId
+  return res
 
 def loginUser(email, password):
     '''
