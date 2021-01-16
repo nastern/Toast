@@ -1,4 +1,11 @@
 {% extends "layout.html" %}
 {% block content %}
 <p>Hello, World!</p>
+<div>Add a new todo item:  
+    <form action="{{ url_for('add_item') }}" method="POST">  
+        <input type="text" name="item">  
+        <input type="submit" value="Add Item" class="button">  
+    </form>
+</div>
+
 {% endblock %}
