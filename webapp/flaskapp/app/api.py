@@ -46,6 +46,34 @@ def createUser(email, password, name):
 
   return userId
 
+def loginUser(email, password):
+    '''
+      args:
+        email: email to login
+        password: password to login
+
+      returns:
+        response: {"success": False, "message": None, "userId": None, "idToken": None, "refreshToken": None}}
+    '''
+    response = {"success": False, "message": None, "userId": None, "idToken": None, "refreshToken": None}
+    pyrebase_auth = pyrebase.auth()
+
+    try:
+      user = pyrebase_auth.sign_in_with_email_and_password(email, password)
+      user = pyrebase_auth.refresh(user['refreshToken'])
+      userId = user['userId']
+      idToken = user['idToken']
+      refreshToken = user['refreshToken']
+
+      response["success"] = True
+      response["message"] = "Successfully authenticated."
+      response['userId'] = userId
+      response['idToken'] = idToken
+      response['refreshToken'] = refreshToken
+    except:
+      response["message"] = "Failed to authenticate. Either username or password is incorrect."
+    return response
+
 def createTodo(userId, title, dueDate, description="", completed=False, isFocus=False, category="Default"):
   '''
     args:

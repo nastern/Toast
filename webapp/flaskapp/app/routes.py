@@ -21,6 +21,18 @@ def index():
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
+  if request.method == 'POST':
+    email = request.form.get('email')
+    password = request.form.get('password')
+
+    res = api.loginUser(email, password)
+
+    if not res['success']:
+      err = res['message']
+      return render_template('login.html', err=err)
+
+    return res
+
   return render_template('login.html')
 
 @LoginRequired
