@@ -1,0 +1,20 @@
+version: '2'
+
+services:
+ web:
+   restart: always
+   build: ./webapp
+   expose:
+     - "5000"
+
+ nginxserver:
+   restart: always
+   build: ./nginx
+   ports:
+     - "80:80"
+   volumes:
+     - /www/static
+   depends_on:
+     - web
+
+
