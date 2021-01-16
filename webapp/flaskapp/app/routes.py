@@ -27,13 +27,22 @@ def login():
 
     res = api.loginUser(email, password)
 
+    # If they FAIL to authenticate, return the error message
     if not res['success']:
       err = res['message']
       return render_template('login.html', err=err)
 
-    return res
+    session['userId'] = res['userId']
+
+    return redirect(url_for('todos'))
 
   return render_template('login.html')
+
+@LoginRequired
+@app.route("/logout", methods=['GET', 'POST'])
+def logout():
+  session.clear()
+  return redirect(url_for('index'))
 
 @LoginRequired
 @app.route("/todos", methods=['GET', 'POST'])
