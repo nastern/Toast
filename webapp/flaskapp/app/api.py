@@ -107,8 +107,12 @@ def createTodo(userId, title, dueDate, description="", completed=False, isFocus=
   }
 
   db = firestore.client()
+  # Add the todo
+  (_, todo) = db.collection('todos').add(new_todo)
+
+  # Add the todo ID to the users table
   db.collection('users').document(userId).update({
-    'todos': firestore.ArrayUnion([new_todo])
+    'todos': firestore.ArrayUnion([todo.id])
   })
 
 def getUser(userId):
@@ -122,6 +126,17 @@ def getUser(userId):
   user = db.collection('users').document(userId).get().to_dict()
   return user
 
+def getTodo(todoId):
+  '''
+    args:
+      todoId: gets the todo associated with the ID
+    returns:
+      user: the todo data
+  '''
+  db = firestore.client()
+  todo = db.collection('todos').document(todoId).get().to_dict()
+  return todo
+
 def getTodosForUser(userId):
   '''
     args:
@@ -130,7 +145,11 @@ def getTodosForUser(userId):
       todos: all of the todos associated with a specific user
   '''
   user = getUser(userId)
-  todos = user['todos']
+  user_todos = user['todos']
+  todos = []
 
+  for todoId in user_todos:
+    todos.append(getTodo(todoId))
+  print(todos)
   return todos
 

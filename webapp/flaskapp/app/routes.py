@@ -1,3 +1,4 @@
+from datetime import datetime
 from flask import render_template, request, session, redirect, url_for
 from app import app
 from functools import wraps
@@ -48,6 +49,15 @@ def signup():
   if not user['error']:
     session['userId'] = user['userId']
     return redirect(url_for('todos'))
+
+
+  # MAKE A FEW FAKE TODOS JUST SO WE HAVE THEM TO DISPLAY!!
+  import datetime
+  api.createTodo(session['userId'], "Todo #1", datetime.datetime.now())
+  api.createTodo(session['userId'], "Todo #2", datetime.datetime.now())
+  api.createTodo(session['userId'], "Todo #3", datetime.datetime.now())
+
+
   return render_template('index.html', err=user['error'])
 
 @LoginRequired
@@ -59,7 +69,8 @@ def logout():
 @LoginRequired
 @app.route("/todos", methods=['GET', 'POST'])
 def todos():
-  return render_template('todos.html')
+  todos = api.getTodosForUser(session['userId'])
+  return render_template('todos.html', todos=todos)
 
 @LoginRequired
 @app.route("/create_todo", methods=['GET', 'POST'])
