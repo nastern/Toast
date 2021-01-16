@@ -37,6 +37,9 @@ def createUser(email, password, name):
     user = pyrebase_auth.create_user_with_email_and_password(email, password)
     user = pyrebase_auth.refresh(user['refreshToken'])
   except requests.exceptions.HTTPError as err:
+    # Actual error message for data
+    # errorDict = ast.literal_eval(err.strerror)
+    # message = errorDict["error"]["message"]
     res['error'] = "An account with that email already exists. Please log in."
     return res
 

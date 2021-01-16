@@ -45,6 +45,8 @@
                                 function check(input) {
                                     if (input.value != document.getElementById('password').value) {
                                         input.setCustomValidity('Password Must be Matching.');
+                                    } else if (input.value.length < 6) {
+                                        input.setCustomValidity('Password Must be 6 Characters or More.');
                                     } else {
                                         input.setCustomValidity('');
                                     }
