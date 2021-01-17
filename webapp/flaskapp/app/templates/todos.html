@@ -14,8 +14,11 @@
                 <div class="toolbar-tab">
                     <a class="tab-link" id="previous" data-toggle="tab" href="#today" role="tab">Previous</a>
                   </div>
-                <div class="toolbar-tab">
+                <div class="toolbar-tab tab-underlined">
                   <a class="tab-link" id="completed" data-toggle="tab" href="#completed" role="tab">Completed</a>
+                </div>
+                <div class="toolbar-tab-btn">
+                    <a class="tab-btn" data-toggle="modal" data-target="#createCategoryModal"><i class="fas fa-plus pr-2"></i>New Category</a>
                 </div>
             </div>
         </div>
@@ -25,35 +28,7 @@
                     <h1>To-dos</h1>
                 </div>
                 <div class="todos-container">
-                    {% for todoId, value in upcoming_todos.items() %}
-                        <div class="pl-2 pt-2">
-                            <div class="row">
-                                <div class="col-2">
-                                    Image
-                                </div>
-                                <div class="col-4">
-                                    <h4><b>{{value.title}}</b></h4>
-                                </div>
-                                <br>
-                                <div class="col-5">
-                                    Due on: {{value.dueDate}}
-                                </div>
-                                <div class="col-1">
-                                    <form class="form-signup" action="{{ url_for('complete_todo') }}" method="POST" role="form">
-                                        <input type="text" name="todoId" id="todoId" class="form-control" value="{{todoId}}" hidden>
-                                        <button type="submit">&#10003;</button>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-9">
-                                   <p>{{value.description}}</p>
-                                </div>
-                                <div class="col-3"></div>
-                            </div>
-                        </div>
-                        <hr style="height:1px;border-width:0;color:rgb(167, 165, 165);background-color:rgb(167, 165, 165)">
-                    {% endfor %}
+
                 </div>
                 <div class="todos-controls">
                     <button class="btn btn-primary w-100" data-toggle="modal" data-target="#createTodoModal">Add Task</button>
@@ -65,7 +40,6 @@
                         <h1>Avatar name</h1>
                         <div class="image-stack">
                             <div class="image-stack__item image-stack__item--top">
-                                <img src="{{ url_for('static', filename='images/'+overlay+'.png') }}">
                             </div>
                             <div class="image-stack__item image-stack__item--bottom">
                                 <img src="{{ url_for('static', filename='images/toast.gif') }}"style="max-width: 25vw;"">
@@ -88,7 +62,46 @@
 </div>
 
 <!-- End Main page -->
-
+<!-- Create Category modal -->
+<div class="modal fade" id="createCategoryModal">
+    <div class="modal-dialog text-center" style="width: 500px;">
+        <div class="form-panel shadowed modal-content color-teal">
+            <div class="title-panel color-dark-blue mb-3">
+                <div class="row">
+                    <div class="col-md-12 justify-content-right">
+                        <button type="button" class="close mr-1 mt-1" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                    </div>
+                    <span class="modal-form-header col-md-12">New category</span>
+                </div>
+            </div>
+            <!-- Form -->
+            <form action="{{ url_for('create_todos') }}" method="POST" role="form" id="createCategoryForm" class="create-todo-modal">
+                <!-- Validation message -->
+                {% if err %}
+                <div class="form-group pl-5 pr-5">
+                    <div class="validation-msg error">
+                        <div class="validation-icon error">
+                            <i class="fas fa-times-circle"></i>
+                        </div>
+                        <div class="validation-text text-danger no-bullet">
+                            <p>Some error message if validation fails</p>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                <div class="form-group">
+                    <label for="title" class="modal-form-label">Title</label>
+                    <input type="text" name="title" id="title" class="form-control" placeholder="Title" required autocomplete="off">
+                </div>
+                <div class="form-group text-center mt-3">
+                    <button class="btn btn-lg btn-primary text-uppercase" type="submit">Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 <!-- Create Todo modal -->
 <div class="modal fade" id="createTodoModal">
     <div class="modal-dialog text-center" style="width: 500px;">
