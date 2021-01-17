@@ -1,3 +1,77 @@
+.toolbar-col {
+  flex: 0 0 15%;
+  height: 100vh;
+  padding: 10px;
+  background-color: green;
+}
 
+.todos-col {
+  flex: 0 0 50%;
+  height: 100vh;
+  padding: 10px;
+  background-color: grey;
+}
+
+.profile-col {
+  flex: 0 0 35%;
+  height: 100vh;
+  padding: 10px;
+  background-color: red;
+}
+
+.btn-calendar {
+  background-color: #dbdbdb;
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.create-todo-modal {
+  text-align: left;
+  padding: 10px 25px 10px 25px;
+}
+
+.validation-msg {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding: 15px 10px 0px 10px;
+  width: 100%;
+  border-style: solid;
+  border-left-width: 5px;
+  border-top-width: 0.1pt;
+  border-right-width: 0.1pt;
+  border-bottom-width: 0.1pt;
+  border-radius: 2px;
+}
+
+.validation-msg.success {
+  border-color: #51b951;
+  background-color: #c7e6cf;
+}
+
+.validation-msg.error {
+  border-color: #f72424;
+  background-color: #f1cdcd;
+}
+
+.validation-icon.error {
+  color: #f72424;
+}
+
+.validation-icon.success {
+  color: #51b951;
+}
+
+.validation-icon {
+  padding-right: 10px;
+  align-self: flex-start;
+}
+
+.validation-text {
+  font-size: 15px;
+  text-align: left;
+}
 
 /*# sourceMappingURL=style.css.map */

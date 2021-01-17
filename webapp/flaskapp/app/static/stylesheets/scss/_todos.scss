@@ -1,0 +1,33 @@
+.toolbar-col {
+    flex: 0 0 15%;
+    height: 100vh;
+    padding: 10px;
+    background-color: green;
+}
+
+.todos-col {
+    flex: 0 0 50%;
+    height: 100vh;
+    padding: 10px;
+    background-color: grey;
+}
+
+.profile-col {
+    flex: 0 0 35%;
+    height: 100vh;
+    padding: 10px;
+    background-color: red;
+}
+
+.btn-calendar {
+    background-color: rgb(219, 219, 219);
+    border-top-right-radius: .25rem;
+    border-bottom-right-radius: .25rem;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
+
+.create-todo-modal {
+    text-align: left;
+    padding: 10px 25px 10px 25px;
+}
