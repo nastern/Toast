@@ -158,15 +158,17 @@ def getTodosForUser(userId):
   todos = {
     'upcoming': {},
     'today': {},
-    'previous': {}
+    'previous': {},
+    'completed': {}
   }
 
   for todoId in user_todos:
     todo = getTodo(todoId)
     localized = todo['dueDate']
     todo['dueDate'] = datetime.datetime.strftime(localized, "%B %d, %Y")
-
-    if current_date < localized.date():
+    if todo['completed']:
+      todos['completed'][todoId] = todo
+    elif current_date < localized.date():
       todos['upcoming'][todoId] = todo
     elif current_date > localized.date():
       todos['previous'][todoId] = todo
@@ -175,3 +177,14 @@ def getTodosForUser(userId):
 
   return todos
 
+def completeTodo(todoId):
+  '''
+    args:
+      todoId: the todo you want to mark as completed
+    returns:
+      none.
+  '''
+  db = firestore.client()
+  db.collection('todos').document(todoId).set({
+    'completed': True
+  }, merge=True)

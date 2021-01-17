@@ -89,6 +89,6 @@ def create_todos():
 @LoginRequired
 def complete_todo():
   todoId = request.form.get('todoId')
-  print(todoId)
+  api.completeTodo(todoId)
   return redirect(url_for('todos'))
 

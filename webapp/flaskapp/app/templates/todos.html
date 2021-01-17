@@ -29,28 +29,37 @@
         <div class="content" style="background-color: #accbfb;">
             <div class="content-todos">
                 <div class="todos-header">
-                    <h1>To dos</h1>
+                    <h1>To-dos</h1>
                 </div>
                 <div class="todos-container">
                     {% for todoId, value in upcoming_todos.items() %}
                         <div class="pl-2 pt-2">
                             <div class="row">
-                                <div class="col-3">
-                                    Title: {{value.title}}
+                                <div class="col-2">
+                                    Image
+                                </div>
+                                <div class="col-4">
+                                    <h4><b>{{value.title}}</b></h4>
                                 </div>
                                 <br>
-                                <div class="col-9">
-                                    Date: {{value.dueDate}}
+                                <div class="col-5">
+                                    Due on: {{value.dueDate}}
+                                </div>
+                                <div class="col-1">
+                                    <form class="form-signup" action="{{ url_for('complete_todo') }}" method="POST" role="form">
+                                        <input type="text" name="todoId" id="todoId" class="form-control" value="{{todoId}}" hidden>
+                                        <button type="submit">&#10003;</button>
+                                    </form>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-9">
-                                    Descirption: {{value.description}}
+                                   <p>{{value.description}}</p>
                                 </div>
                                 <div class="col-3"></div>
                             </div>
                         </div>
-                        <br>
+                        <hr style="height:1px;border-width:0;color:rgb(167, 165, 165);background-color:rgb(167, 165, 165)">
                     {% endfor %}
                 </div>
                 <div class="todos-controls">
@@ -63,7 +72,7 @@
                         <h1>Avatar name</h1>
                         <div class="image-stack">
                             <div class="image-stack__item image-stack__item--top">
-                                <img src="{{ url_for('static', filename='images/avocado.png') }}">
+                                <img src="{{ url_for('static', filename='images/bananas.png') }}">
                             </div>
                             <div class="image-stack__item image-stack__item--bottom">
                                 <img src="{{ url_for('static', filename='images/toast.gif') }}"style="max-width: 25vw;"">
@@ -123,7 +132,7 @@
                 <div class="form-group">
                     <label for="date" class="modal-form-label">Due Date</label>
                     <div class="input-group">
-                        <input id="todoDatePicker" name="date" id="date" type="text" class="form-control date" 
+                        <input id="todoDatePicker" name="date" id="date" type="text" class="form-control date"
                         required autocomplete="off" placeholder="When the task is due"/>
                         <label class="input-group-btn" for="todoDatePicker">
                             <span class="btn btn-calendar"><span class="fa fa-calendar"></span></span>
