@@ -69,8 +69,9 @@ def logout():
 @app.route("/todos", methods=['GET', 'POST'])
 @LoginRequired
 def todos():
+  # current overlay, list of all available
   todos = api.getTodosForUser(session['userId'])
-  return render_template('todos.html', upcoming_todos=todos['upcoming'],previous_todos=todos['previous'],today_todos=todos['today'], completed_todos=todos['completed'])
+  return render_template('todos.html', upcoming_todos=todos['upcoming'],previous_todos=todos['previous'],today_todos=todos['today'], completed_todos=todos['completed'], overlay='avocado')
 
 @app.route("/create_todo", methods=['POST'])
 @LoginRequired
