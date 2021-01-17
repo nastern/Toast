@@ -1,4 +1,0 @@
-requests==2.11.1
-Flask
-pyrebase
-firebase-admin
