@@ -70,8 +70,18 @@ def logout():
 @LoginRequired
 def todos():
   # current overlay, list of all available
+  user = api.getUser(session['userId'])
+
   todos = api.getTodosForUser(session['userId'])
-  return render_template('todos.html', upcoming_todos=todos['upcoming'],previous_todos=todos['previous'],today_todos=todos['today'], completed_todos=todos['completed'], overlay='avocado')
+  current_topping = user['current_topping']
+  print(current_topping)
+  owned_toppings = user['toppings']
+
+  return render_template('todos.html', upcoming_todos=todos['upcoming'],
+                      previous_todos=todos['previous'],today_todos=todos['today'],
+                      completed_todos=todos['completed'], overlay=current_topping,
+                      owned_toppings=owned_toppings
+                      )
 
 @app.route("/create_todo", methods=['POST'])
 @LoginRequired
@@ -93,3 +103,10 @@ def complete_todo():
   api.completeTodo(todoId)
   return redirect(url_for('todos'))
 
+
+@app.route("/update_topping", methods=["POST"])
+@LoginRequired
+def update_topping():
+  topping = request.form.get('topping')
+  api.updateTopping(session['userId'], topping)
+  return redirect(url_for('todos'))

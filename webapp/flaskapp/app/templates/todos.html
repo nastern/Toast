@@ -82,7 +82,12 @@
                 </div>
                 <div class="avatar-items">
                     <h1>Item list</h1>
-                    <div>items</div>
+                    {% for topping in owned_toppings %}
+                        <form class="form-signup" action="{{ url_for('update_topping') }}" method="POST" role="form">
+                            <input type="text" name="topping" id="topping" class="form-control" value="{{topping}}" hidden>
+                            <button type="submit">{{topping}}</button>
+                        </form>
+                    {% endfor %}
                 </div>
             </div>
         </div>
