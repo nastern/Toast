@@ -69,7 +69,7 @@
             <div class="content-avatar">
                 <div class="avatar-display">
                     <div class="container text-center">
-                        <h1>Avatar name</h1>
+                        <h2>Hi! I'm Toasty! </h2>
                         <div class="image-stack">
                             <div class="image-stack__item image-stack__item--top">
                                 <img src="{{ url_for('static', filename='images/'+overlay+'.png') }}">
@@ -81,7 +81,7 @@
                     </div>
                 </div>
                 <div class="avatar-items">
-                    <h1>Item list</h1>
+                    <h2>Choice of Toppings</h2>
                     {% for topping in owned_toppings %}
                         <form class="form-signup" action="{{ url_for('update_topping') }}" method="POST" role="form">
                             <input type="text" name="topping" id="topping" class="form-control" value="{{topping}}" hidden>
