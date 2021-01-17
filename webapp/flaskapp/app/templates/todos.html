@@ -12,21 +12,26 @@
                     <h1>Tasks</h1>
                 </div>
                 <div class="todos-container">
-                    <div class="todo-item">
-                        <!-- {{ todos }}
-                        {% for todo in todos %}
-                        <br>  
-                        <br>  
-                        <br>  
-                        
-                        <li>{{ todo }}</li> 
-                        <li>Title: {{ todo.title }}</li> 
-                        <li>get: {{ todo + 'hi' }}</li> 
-                        <li>One: {{ todo[1] }}</li> 
-                        <li>{{ todo['isFocus'] }}</li> 
-                        <li>{{ todo['dueDate'] }}</li> 
-                        {% endfor %}                 -->
-                    </div>
+                    {% for todoId, value in todos.items() %}
+                        <div class="pl-2 pt-2">
+                            <div class="row">
+                                <div class="col-3">
+                                    Title: {{value.title}}
+                                </div>
+                                <br>
+                                <div class="col-9">
+                                    Date: {{value.dueDate}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-9">
+                                    Descirption: {{value.description}}
+                                </div>
+                                <div class="col-3"></div>
+                            </div>
+                        </div>
+                        <br>
+                    {% endfor %}
                 </div>
                 <div class="todos-controls">
                     <button class="btn btn-primary w-100" data-toggle="modal" data-target="#createTodoModal">Add Task</button>
@@ -87,7 +92,7 @@
                 </div>
                 <div class="form-group">
                     <label for="title">Title*</label>
-                    <input type="text" name="title" id="title" class="form-control" placeholder="Title">
+                    <input type="text" name="title" id="title" class="form-control" placeholder="Title" required>
                 </div>
                 <div class="form-group">
                     <label for="title">Description</label>
@@ -97,7 +102,7 @@
                 <div class="form-group">
                     <label for="date">Due Date*</label>
                     <div class="input-group">
-                        <input id="todoDatePicker" name="date" id="date" type="text" class="form-control date" />
+                        <input id="todoDatePicker" name="date" id="date" type="text" class="form-control date" required />
                         <label class="input-group-btn" for="todoDatePicker">
                             <span class="btn btn-calendar"><span class="fa fa-calendar"></span></span>
                         </label>
