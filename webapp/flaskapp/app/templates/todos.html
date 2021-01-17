@@ -3,28 +3,21 @@
 <!-- Main page -->
 <div class="row d-flex flex-column min-vh-100">
     <div class="d-flex flex-fill">
-        <div class="toolbar">
-            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-                <div class="sidebar-sticky">
-                  <ul class="nav flex-column">
-                    <li class="nav-item">
-                      <a class="nav-link active" href="#">
-                        All Tasks
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">
-                        Today
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">
-                        Completed
-                      </a>
-                    </li>
-                  </ul>
+        <div class="toolbar flex-fill">
+            <div class="toolbar-tabs" id="toolbarTabs" role="tablist">
+                <div class="toolbar-tab">
+                  <a class="tab-link active" id="today" data-toggle="tab" href="#all" role="tab">Today</a>
                 </div>
-              </nav>
+                <div class="toolbar-tab">
+                  <a class="tab-link" id="upcoming" data-toggle="tab" href="#today" role="tab">Upcoming</a>
+                </div>
+                <div class="toolbar-tab">
+                    <a class="tab-link" id="previous" data-toggle="tab" href="#today" role="tab">Previous</a>
+                  </div>
+                <div class="toolbar-tab">
+                  <a class="tab-link" id="completed" data-toggle="tab" href="#completed" role="tab">Completed</a>
+                </div>
+            </div>
         </div>
         <div class="content" style="background-color: #accbfb;">
             <div class="content-todos">
@@ -36,7 +29,7 @@
                         <div class="pl-2 pt-2">
                             <div class="row">
                                 <div class="col-2">
-                                    <img src="{{ url_for('static', filename='images/grain.png') }}" alt="grain" width='40'>
+                                    Image
                                 </div>
                                 <div class="col-4">
                                     <h4><b>{{value.title}}</b></h4>
@@ -69,19 +62,19 @@
             <div class="content-avatar">
                 <div class="avatar-display">
                     <div class="container text-center">
-                        <h2>Hi! I'm Toasty! </h2>
+                        <h1>Avatar name</h1>
                         <div class="image-stack">
                             <div class="image-stack__item image-stack__item--top">
                                 <img src="{{ url_for('static', filename='images/'+overlay+'.png') }}">
                             </div>
                             <div class="image-stack__item image-stack__item--bottom">
-                                <img src="{{ url_for('static', filename='images/toast.gif') }}"style="max-width: 20vw;">
+                                <img src="{{ url_for('static', filename='images/toast.gif') }}"style="max-width: 25vw;"">
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="avatar-items">
-                    <h2>Choice of Toppings</h2>
+                    <h1>Item list</h1>
                     {% for topping in owned_toppings %}
                         <form class="form-signup" action="{{ url_for('update_topping') }}" method="POST" role="form">
                             <input type="text" name="topping" id="topping" class="form-control" value="{{topping}}" hidden>
@@ -148,8 +141,6 @@
                 <div class="form-group">
                     <label for="category" class="modal-form-label">Category</label>
                     <select class="form-control">
-                        <option>Mental Health</option>
-                        <option>Task</option>
                         <option>Some category...</option>
                     </select>
                 </div>
@@ -173,6 +164,42 @@
         });
         $('.fa-calendar').click(function () {
             $("#todoDatePicker").focus();
+        });
+    });
+</script>
+<!-- Toolbar onclicks JS -->
+<script type="text/javascript">
+    // tab-clicks
+    $(function () {
+        $('.tab-link').click(() =>
+        {
+            let element = event.srcElement;
+            let listEleId = "";
+            switch(event.srcElement.id) {
+                case "today":
+                    listEleId = "todayList";
+                    break;
+                case "upcoming":
+                    listEleId = "upcomingList";
+                    break;
+                case "previous":
+                    listEleId = "previousList";
+                    break;
+                case "completed":
+                    listEleId = "completedList";
+                    break;
+            }
+            // Now clear all active tabs and hide all other lists
+            for (let ele of document.getElementsByClassName("tab-link")) {
+                ele.classList.remove("active");
+            }
+            for (let ele of document.getElementsByClassName("todos-container")) {
+                ele.style.visibility = "hidden";
+            }
+            // Now set this tab active
+            element.classList.toggle("active");
+            // And set the list visible
+            $(`#${listEleId}`).style.visibility = "visible"
         });
     });
 </script>
