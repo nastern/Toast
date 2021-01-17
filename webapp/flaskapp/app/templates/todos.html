@@ -4,9 +4,29 @@
 <div class="d-flex flex-column min-vh-100">
     <div class="d-flex flex-fill">
         <div class="toolbar">
-            toolbar...
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+                  <ul class="nav flex-column">
+                    <li class="nav-item">
+                      <a class="nav-link active" href="#">
+                        All Tasks
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">
+                        Today
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">
+                        Completed
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>      
         </div>
-        <div class="content">
+        <div class="content" style="background-color: #accbfb;">
             <div class="content-todos">
                 <div class="todos-header">
                     <h1>Todos</h1>
@@ -46,7 +66,7 @@
                                 <img src="{{ url_for('static', filename='images/avocado.png') }}">
                             </div>
                             <div class="image-stack__item image-stack__item--bottom">
-                                <img src="{{ url_for('static', filename='images/toast.png') }}">
+                                <img src="{{ url_for('static', filename='images/toast.gif') }}"style="max-width: 25vw;"">
                             </div>
                         </div>
                     </div>
