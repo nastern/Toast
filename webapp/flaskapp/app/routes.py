@@ -70,7 +70,7 @@ def logout():
 @LoginRequired
 def todos():
   todos = api.getTodosForUser(session['userId'])
-  return render_template('todos.html', upcoming_todos=todos['upcoming'],previous_todos=todos['previous'],today_todos=todos['today'])
+  return render_template('todos.html', upcoming_todos=todos['upcoming'],previous_todos=todos['previous'],today_todos=todos['today'], completed_todos=todos['completed'])
 
 @app.route("/create_todo", methods=['POST'])
 @LoginRequired
