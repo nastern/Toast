@@ -4,6 +4,8 @@ import firebase_admin
 from firebase_admin import firestore
 import requests
 import ast
+import datetime
+import pytz
 
 config = {
   "apiKey": "AIzaSyChN6zUmOTt9h6vBSHP72XXSGaOb7o2TaM",
@@ -150,9 +152,26 @@ def getTodosForUser(userId):
   '''
   user = getUser(userId)
   user_todos = user['todos']
-  todos = {}
+
+  utc = pytz.UTC
+  current_date = datetime.datetime.now(tz=utc).date()
+
+  todos = {
+    'upcoming': {},
+    'today': {},
+    'previous': {}
+  }
 
   for todoId in user_todos:
-    todos[todoId] = getTodo(todoId)
+    todo = getTodo(todoId)
+    localized = todo['dueDate']
+
+    if current_date > localized.date():
+      todos['upcoming'][todoId] = todo
+    elif current_date < localized.date():
+      todos['previous'][todoId] = todo
+    else:
+      todos['today'][todoId] = todo
+
   return todos
 

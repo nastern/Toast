@@ -69,9 +69,8 @@ def logout():
 @app.route("/todos", methods=['GET', 'POST'])
 @LoginRequired
 def todos():
-  print('userId' in session)
   todos = api.getTodosForUser(session['userId'])
-  return render_template('todos.html', todos=todos)
+  return render_template('todos.html', upcoming_todos=todos['upcoming'],preious_todos=todos['previous'],today_todos=todos['today'])
 
 @app.route("/create_todo", methods=['POST'])
 @LoginRequired
@@ -81,7 +80,6 @@ def create_todos():
   date = request.form.get('date')
 
   datetime_obj = datetime.strptime(date, '%m/%d/%Y')
-  print(datetime_obj)
 
   api.createTodo(session['userId'], title, date, description)
 
