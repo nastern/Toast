@@ -24,15 +24,15 @@
                     </li>
                   </ul>
                 </div>
-              </nav>      
+              </nav>
         </div>
         <div class="content" style="background-color: #accbfb;">
             <div class="content-todos">
                 <div class="todos-header">
-                    <h1>Todos</h1>
+                    <h1>To dos</h1>
                 </div>
                 <div class="todos-container">
-                    {% for todoId, value in todos.items() %}
+                    {% for todoId, value in upcoming_todos.items() %}
                         <div class="pl-2 pt-2">
                             <div class="row">
                                 <div class="col-3">
@@ -63,7 +63,7 @@
                         <h1>Avatar name</h1>
                         <div class="image-stack">
                             <div class="image-stack__item image-stack__item--top">
-                                <img src="{{ url_for('static', filename='images/bananas.png') }}">
+                                <img src="{{ url_for('static', filename='images/avocado.png') }}">
                             </div>
                             <div class="image-stack__item image-stack__item--bottom">
                                 <img src="{{ url_for('static', filename='images/toast.gif') }}"style="max-width: 25vw;"">
