@@ -10,14 +10,16 @@ h1 {
     font-family: Poppins;
     font-style: normal;
     font-weight: bolder;
-    margin-top: 10vh;
+    font-size: 4em;
+    margin-top: 2vh;
 }
 
 h3 {
     font-family: Poppins;
     font-style: normal;
     font-weight: 500;
-    padding-top: 10vh;
+    font-size: 2em;
+    padding-top: 4vh;
 }
 
 .rounded {
@@ -53,7 +55,12 @@ p {
     max-width: 40vw;
 }
 
-.mid-background {
+#mid-background {
     background-color: #FAFDFF;
-    min-height: 40vh;
+    min-height: 35vh;
+}
+
+#footer {
+    background-color: #7386FF;
+    min-height: 10vh;
 }
