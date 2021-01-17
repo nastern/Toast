@@ -52,3 +52,8 @@ p {
 .leaves {
     max-width: 40vw;
 }
+
+.mid-background {
+    background-color: #FAFDFF;
+    min-height: 40vh;
+}
