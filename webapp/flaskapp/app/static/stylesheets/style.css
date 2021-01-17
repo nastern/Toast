@@ -8,7 +8,7 @@
   display: flex;
   flex: 0 0 85%;
   padding: 5px;
-  background-color: #a5c6f7;
+  background-color: #a7c6f6;
 }
 
 .content-todos {
@@ -349,7 +349,6 @@ fieldset[disabled] .btn-secondary.focus {
 }
 
 #top-background {
-  height: 100vh;
   padding-top: 5vh;
 }
 
@@ -358,7 +357,6 @@ h1 {
   font-style: normal;
   font-weight: bolder;
   font-size: 4em;
-  margin-top: 2vh;
 }
 
 h3 {
@@ -366,7 +364,6 @@ h3 {
   font-style: normal;
   font-weight: 500;
   font-size: 2em;
-  padding-top: 4vh;
 }
 
 .rounded {
@@ -398,10 +395,6 @@ p {
   max-width: 20vw;
 }
 
-.leaves {
-  max-width: 40vw;
-}
-
 #mid-background {
   background-color: #FAFDFF;
   min-height: 35vh;
@@ -412,27 +405,35 @@ p {
   min-height: 10vh;
 }
 
+.greeter-small {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+
+.greeter-big {
+  display: flex;
+  flex: 0 0 35%;
+  align-items: center;
+}
+
+.leaves {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 5vh 0vh 5vh 0;
+}
+
 .color-teal {
-  background-color: #accbfb;
+  background-color: #a7c6f6;
 }
 
 .color-dark-blue {
   background-color: #7386ff;
 }
 
+.text-nowrap {
+  white-space: nowrap;
+}
+
 /*# sourceMappingURL=style.css.map */
-
-/* TOOLBAR CSS */
-.sidebar .nav-link {
-  font-weight: 500;
-  color: #333;
-}
-
-.sidebar .nav-link.active {
-  color: #007bff;
-}
-
-.sidebar-heading {
-  font-size: .75rem;
-  text-transform: uppercase;
-}
