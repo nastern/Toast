@@ -1,3 +1,9 @@
-$color-bg: whitesmoke;
-$color-primary: black;
-$color-secondary: #b8b8b8;
+$color-dark-blue: #7386ff;
+$color-teal: #a8c9ff;
+$color-grey2: #f7f8fc;
+$color-peach: #ffe6b8;
+$color-light-orange: #ffcc95;
+ // Main submit button
+$color-control-primary: $color-dark-blue;
+$color-control-primary-brdr: $color-dark-blue;
+$color-control-primary-hvr: lighten($color-dark-blue, 2%);

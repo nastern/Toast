@@ -1,24 +1,69 @@
-.toolbar-col {
+.toolbar {
     flex: 0 0 15%;
-    height: 100vh;
     padding: 10px;
-    background-color: green;
+    background-color: $color-peach;
 }
-
-.todos-col {
-    flex: 0 0 50%;
-    height: 100vh;
-    padding: 10px;
-    background-color: grey;
+.content {
+    display: flex;
+    flex: 0 0 85%;
+    padding: 5px;
+    background-color: $color-teal;
 }
-
-.profile-col {
-    flex: 0 0 35%;
-    height: 100vh;
-    padding: 10px;
-    background-color: red;
+.content-todos {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 60%;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 15px;
 }
-
+.content-avatar {
+    display: flex;
+    flex: 0 0 40%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 15px;
+}
+.todos-header {
+    flex: 0 0 5%;
+    padding-top: 15px;
+    padding-bottom: 5px;
+}
+.todos-container {
+    flex: 1; // fill height
+    min-width: 95%;
+    background-color: $color-grey2;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.todos-controls {
+    min-width: 95%;
+    padding-top: 10px;
+}
+.todo-item {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+.avatar-display {
+    display: flex;
+    flex: 0 0 60%;
+    min-width: 95%;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+}
+.avatar-items {
+    display: flex;
+    flex: 1; // fill remaining height
+    min-width: 95%;
+    flex-direction: column;
+    align-items: center;
+}
+// Modal stuff
 .btn-calendar {
     background-color: rgb(219, 219, 219);
     border-top-right-radius: .25rem;
@@ -26,7 +71,6 @@
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
 }
-
 .create-todo-modal {
     text-align: left;
     padding: 10px 25px 10px 25px;
