@@ -34,6 +34,7 @@ def login():
       return render_template('login.html', err=err)
 
     session['userId'] = res['userId']
+    session['current_topping'] = res['current_topping']
 
     return redirect(url_for('todos'))
 
@@ -48,6 +49,7 @@ def signup():
   user = api.createUser(email, password, name)
   if not user['error']:
     session['userId'] = user['userId']
+    session['current_topping'] = user['current_topping']
     return redirect(url_for('todos'))
 
 
@@ -73,9 +75,18 @@ def todos():
   return render_template('todos.html', todos=todos)
 
 @LoginRequired
-@app.route("/create_todo", methods=['GET', 'POST'])
+@app.route("/create_todo", methods=['POST'])
 def create_todos():
-  return render_template('create_todo.html')
+  title = request.form.get('title')
+  description = request.form.get('description')
+  date = request.form.get('date')
+
+  datetime_obj = datetime.strptime(date, '%m/%d/%Y')
+  print(datetime_obj)
+
+  api.createTodo(session['userId'], title, date, description)
+
+  return redirect(url_for('todos'))
 
 
 

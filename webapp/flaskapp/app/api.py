@@ -31,6 +31,7 @@ def createUser(email, password, name):
   res = {
     'userId': None,
     'error': None,
+    'current_topping': 'default.png'
   }
   try:
     pyrebase_auth = pyrebase.auth()
@@ -53,7 +54,9 @@ def createUser(email, password, name):
     'userId': userId,
     'todos': [],
     'email': email,
-    'name': name
+    'name': name,
+    'toppings': [],
+    'current_topping': 'default.png'
   })
 
   return res
@@ -67,7 +70,7 @@ def loginUser(email, password):
       returns:
         response: {"success": False, "message": None, "userId": None, "idToken": None, "refreshToken": None}}
     '''
-    response = {"success": False, "message": None, "userId": None, "idToken": None, "refreshToken": None}
+    response = {"success": False, "message": None, "userId": None, "idToken": None, "refreshToken": None, "current_topping": None}
     pyrebase_auth = pyrebase.auth()
 
     try:
@@ -82,6 +85,7 @@ def loginUser(email, password):
       response['userId'] = userId
       response['idToken'] = idToken
       response['refreshToken'] = refreshToken
+      response['current_topping'] = user['current_topping']
     except:
       response["message"] = "Failed to authenticate. Either username or password is incorrect."
     return response
@@ -150,6 +154,5 @@ def getTodosForUser(userId):
 
   for todoId in user_todos:
     todos[todoId] = getTodo(todoId)
-  print(todos)
   return todos
 
