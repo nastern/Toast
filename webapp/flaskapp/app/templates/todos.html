@@ -36,7 +36,7 @@
                         <div class="pl-2 pt-2">
                             <div class="row">
                                 <div class="col-2">
-                                    Image
+                                    <img src="{{ url_for('static', filename='images/grain.png') }}" alt="grain" width='40'>
                                 </div>
                                 <div class="col-4">
                                     <h4><b>{{value.title}}</b></h4>
@@ -148,6 +148,8 @@
                 <div class="form-group">
                     <label for="category" class="modal-form-label">Category</label>
                     <select class="form-control">
+                        <option>Mental Health</option>
+                        <option>Task</option>
                         <option>Some category...</option>
                     </select>
                 </div>
