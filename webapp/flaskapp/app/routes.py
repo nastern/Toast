@@ -81,9 +81,14 @@ def create_todos():
 
   datetime_obj = datetime.strptime(date, '%m/%d/%Y')
 
-  api.createTodo(session['userId'], title, date, description)
+  api.createTodo(session['userId'], title, datetime_obj, description)
 
   return redirect(url_for('todos'))
 
-
+@app.route("/complete_todo", methods=["POST"])
+@LoginRequired
+def complete_todo():
+  todoId = request.form.get('todoId')
+  print(todoId)
+  return redirect(url_for('todos'))
 

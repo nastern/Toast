@@ -153,8 +153,7 @@ def getTodosForUser(userId):
   user = getUser(userId)
   user_todos = user['todos']
 
-  utc = pytz.UTC
-  current_date = datetime.datetime.now(tz=utc).date()
+  current_date = datetime.datetime.now().date()
 
   todos = {
     'upcoming': {},
@@ -165,10 +164,11 @@ def getTodosForUser(userId):
   for todoId in user_todos:
     todo = getTodo(todoId)
     localized = todo['dueDate']
+    todo['dueDate'] = datetime.datetime.strftime(localized, "%B %d, %Y")
 
-    if current_date > localized.date():
+    if current_date < localized.date():
       todos['upcoming'][todoId] = todo
-    elif current_date < localized.date():
+    elif current_date > localized.date():
       todos['previous'][todoId] = todo
     else:
       todos['today'][todoId] = todo
