@@ -1,14 +1,15 @@
 @import "variables";
-// Bootstrap overrides
-// btn-primary changes
-// Color only
+// Primary button changes (dark-blue, only changes color).
 .btn-primary {
     color: black;
     background-color: $color-control-primary;
     border-color: $color-control-primary-brdr;
 }
-.btn-primary:focus, .btn-primary.focus, .btn-primary:hover,
-.btn-primary:active, .btn-primary.active {
+.btn-primary:focus,
+.btn-primary.focus,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary.active {
     color: black;
     background-color: $color-control-primary-hvr !important;
     border-color: $color-control-primary-brdr !important;
@@ -51,37 +52,138 @@ fieldset[disabled] .btn-primary.focus {
     color: black;
     background-color: $color-control-primary;
     border-color: $color-control-primary-brdr;
-  }
-  
-  .btn-primary:hover {
+}
+
+.btn-primary:hover {
     color: black;
     background-color: $color-control-primary-hvr;
     border-color: $color-control-primary-brdr;
-  }
-  
-  .btn-check:focus + .btn-primary, .btn-primary:focus {
+}
+
+.btn-check:focus + .btn-primary,
+.btn-primary:focus {
     color: black;
     background-color: $color-control-primary-hvr;
     border-color: $color-control-primary-brdr;
     box-shadow: 0 0 0 0.2rem $color-control-primary;
-  }
-  
-  .btn-check:checked + .btn-primary,
-  .btn-check:active + .btn-primary, .btn-primary:active, .btn-primary.active,
-  .show > .btn-primary.dropdown-toggle {
+}
+
+.btn-check:checked + .btn-primary,
+.btn-check:active + .btn-primary,
+.btn-primary:active,
+.btn-primary.active,
+.show > .btn-primary.dropdown-toggle {
     color: black;
     background-color: $color-control-primary-hvr;
     border-color: $color-control-primary-brdr;
-  }
-  
-  .btn-check:checked + .btn-primary:focus,
-  .btn-check:active + .btn-primary:focus, .btn-primary:active:focus, .btn-primary.active:focus,
-  .show > .btn-primary.dropdown-toggle:focus {
+}
+
+.btn-check:checked + .btn-primary:focus,
+.btn-check:active + .btn-primary:focus,
+.btn-primary:active:focus,
+.btn-primary.active:focus,
+.show > .btn-primary.dropdown-toggle:focus {
     box-shadow: 0 0 0 0.2rem $color-control-primary;
-  }
-  
-  .btn-primary:disabled, .btn-primary.disabled {
+}
+
+.btn-primary:disabled,
+.btn-primary.disabled {
     color: black;
     background-color: $color-control-primary;
     border-color: $color-control-primary-brdr;
-  }
+}
+
+
+// Secondary button changes (peach, only changes color).
+.btn-secondary {
+    color: black;
+    background-color: $color-control-secondary;
+    border-color: $color-control-secondary-brdr;
+}
+.btn-secondary:focus,
+.btn-secondary.focus,
+.btn-secondary:hover,
+.btn-secondary:active,
+.btn-secondary.active {
+    color: black;
+    background-color: $color-control-secondary-hvr !important;
+    border-color: $color-control-secondary-brdr !important;
+    background-image: none;
+    outline: none !important;
+    box-shadow: none !important;
+}
+.open > .dropdown-toggle.btn-secondary,
+.btn-secondary:active:hover,
+.btn-secondary.active:hover,
+.open > .dropdown-toggle.btn-secondary:hover,
+.btn-secondary:active:focus,
+.btn-secondary.active:focus,
+.open > .dropdown-toggle.btn-secondary:focus,
+.btn-secondary:active.focus,
+.btn-secondary.active.focus,
+.open > .dropdown-toggle.btn-secondary.focus,
+.btn-secondary.disabled:hover,
+.btn-secondary[disabled]:hover,
+fieldset[disabled] .btn-secondary:hover,
+.btn-secondary.disabled:focus,
+.btn-secondary[disabled]:focus,
+fieldset[disabled] .btn-secondary:focus,
+.btn-secondary.disabled.focus,
+.btn-secondary[disabled].focus,
+fieldset[disabled] .btn-secondary.focus {
+    color: black;
+    background-color: $color-control-secondary !important;
+    border-color: $color-control-secondary-brdr !important;
+}
+.open > .dropdown-toggle.btn-secondary {
+    color: black;
+    background-color: $color-control-secondary !important;
+    border-color: $color-control-secondary-brdr !important;
+    background-image: none;
+    outline: none !important;
+    box-shadow: none !important;
+}
+.btn-secondary {
+    color: black;
+    background-color: $color-control-secondary;
+    border-color: $color-control-secondary-brdr;
+}
+
+.btn-secondary:hover {
+    color: black;
+    background-color: $color-control-secondary-hvr;
+    border-color: $color-control-secondary-brdr;
+}
+
+.btn-check:focus + .btn-secondary,
+.btn-secondary:focus {
+    color: black;
+    background-color: $color-control-secondary-hvr;
+    border-color: $color-control-secondary-brdr;
+    box-shadow: 0 0 0 0.2rem $color-control-secondary;
+}
+
+.btn-check:checked + .btn-secondary,
+.btn-check:active + .btn-secondary,
+.btn-secondary:active,
+.btn-secondary.active,
+.show > .btn-secondary.dropdown-toggle {
+    color: black;
+    background-color: $color-control-secondary-hvr;
+    border-color: $color-control-secondary-brdr;
+}
+
+.btn-check:checked + .btn-secondary:focus,
+.btn-check:active + .btn-secondary:focus,
+.btn-secondary:active:focus,
+.btn-secondary.active:focus,
+.show > .btn-secondary.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem $color-control-secondary;
+}
+
+.btn-secondary:disabled,
+.btn-secondary.disabled {
+    color: black;
+    background-color: $color-control-secondary;
+    border-color: $color-control-secondary-brdr;
+}

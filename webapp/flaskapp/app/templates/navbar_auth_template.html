@@ -1,0 +1,9 @@
+{% if 'userId' in session %}
+<form method="post" class="form-inline" action="{{ url_for('logout') }}">
+    <button class="btn btn-secondary btn-lg btn-pill btn-auth" type="submit">Logout</button>
+</form>
+{% else %}
+<form method="get" class="form-inline" action="{{ url_for('login') }}">
+    <button class="btn btn-secondary btn-lg btn-pill btn-auth" type="submit">Login</button>
+</form>
+{% endif %}

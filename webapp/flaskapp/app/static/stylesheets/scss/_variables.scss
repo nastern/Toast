@@ -7,3 +7,8 @@ $color-light-orange: #ffcc95;
 $color-control-primary: $color-dark-blue;
 $color-control-primary-brdr: $color-dark-blue;
 $color-control-primary-hvr: lighten($color-dark-blue, 2%);
+
+// Secondary submit button
+$color-control-secondary: $color-peach;
+$color-control-secondary-brdr: $color-peach;
+$color-control-secondary-hvr: lighten($color-peach, 10%);

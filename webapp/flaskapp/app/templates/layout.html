@@ -43,6 +43,23 @@
 
 </head>
 <body class="main-body">
+  <!-- navbar -->
+  <header>
+    <nav class="navbar color-dark-blue">
+        <a class="navbar-brand" href="{{ url_for('index') }}" draggable="false">
+            <img src="{{ url_for('static', filename='images/toast.png') }}" 
+                width="80" height="60" class="d-inline-block align-top" alt="The logo name"
+                draggable="false">
+        </a>
+        <ul class="navbar-nav ml-lg-auto text-center">
+            <li class="nav-item mx-4">
+              {% include 'navbar_auth_template.html' %}
+            </li>
+        </ul>
+    </nav>
+  </header>
+  <!-- end navbar -->
+
   <main role="main" class="container-fluid p-0">
     {% block content %}
     {% endblock %}

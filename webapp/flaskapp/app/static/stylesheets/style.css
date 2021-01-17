@@ -134,8 +134,11 @@
   border-color: #7386ff;
 }
 
-.btn-primary:focus, .btn-primary.focus, .btn-primary:hover,
-.btn-primary:active, .btn-primary.active {
+.btn-primary:focus,
+.btn-primary.focus,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary.active {
   color: black;
   background-color: #7d8fff !important;
   border-color: #7386ff !important;
@@ -189,7 +192,8 @@ fieldset[disabled] .btn-primary.focus {
   border-color: #7386ff;
 }
 
-.btn-check:focus + .btn-primary, .btn-primary:focus {
+.btn-check:focus + .btn-primary,
+.btn-primary:focus {
   color: black;
   background-color: #7d8fff;
   border-color: #7386ff;
@@ -197,7 +201,9 @@ fieldset[disabled] .btn-primary.focus {
 }
 
 .btn-check:checked + .btn-primary,
-.btn-check:active + .btn-primary, .btn-primary:active, .btn-primary.active,
+.btn-check:active + .btn-primary,
+.btn-primary:active,
+.btn-primary.active,
 .show > .btn-primary.dropdown-toggle {
   color: black;
   background-color: #7d8fff;
@@ -205,19 +211,132 @@ fieldset[disabled] .btn-primary.focus {
 }
 
 .btn-check:checked + .btn-primary:focus,
-.btn-check:active + .btn-primary:focus, .btn-primary:active:focus, .btn-primary.active:focus,
+.btn-check:active + .btn-primary:focus,
+.btn-primary:active:focus,
+.btn-primary.active:focus,
 .show > .btn-primary.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem #7386ff;
 }
 
-.btn-primary:disabled, .btn-primary.disabled {
+.btn-primary:disabled,
+.btn-primary.disabled {
   color: black;
   background-color: #7386ff;
   border-color: #7386ff;
 }
 
+.btn-secondary {
+  color: black;
+  background-color: #ffe6b8;
+  border-color: #ffe6b8;
+}
+
+.btn-secondary:focus,
+.btn-secondary.focus,
+.btn-secondary:hover,
+.btn-secondary:active,
+.btn-secondary.active {
+  color: black;
+  background-color: #fff8eb !important;
+  border-color: #ffe6b8 !important;
+  background-image: none;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.open > .dropdown-toggle.btn-secondary,
+.btn-secondary:active:hover,
+.btn-secondary.active:hover,
+.open > .dropdown-toggle.btn-secondary:hover,
+.btn-secondary:active:focus,
+.btn-secondary.active:focus,
+.open > .dropdown-toggle.btn-secondary:focus,
+.btn-secondary:active.focus,
+.btn-secondary.active.focus,
+.open > .dropdown-toggle.btn-secondary.focus,
+.btn-secondary.disabled:hover,
+.btn-secondary[disabled]:hover,
+fieldset[disabled] .btn-secondary:hover,
+.btn-secondary.disabled:focus,
+.btn-secondary[disabled]:focus,
+fieldset[disabled] .btn-secondary:focus,
+.btn-secondary.disabled.focus,
+.btn-secondary[disabled].focus,
+fieldset[disabled] .btn-secondary.focus {
+  color: black;
+  background-color: #ffe6b8 !important;
+  border-color: #ffe6b8 !important;
+}
+
+.open > .dropdown-toggle.btn-secondary {
+  color: black;
+  background-color: #ffe6b8 !important;
+  border-color: #ffe6b8 !important;
+  background-image: none;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.btn-secondary {
+  color: black;
+  background-color: #ffe6b8;
+  border-color: #ffe6b8;
+}
+
+.btn-secondary:hover {
+  color: black;
+  background-color: #fff8eb;
+  border-color: #ffe6b8;
+}
+
+.btn-check:focus + .btn-secondary,
+.btn-secondary:focus {
+  color: black;
+  background-color: #fff8eb;
+  border-color: #ffe6b8;
+  box-shadow: 0 0 0 0.2rem #ffe6b8;
+}
+
+.btn-check:checked + .btn-secondary,
+.btn-check:active + .btn-secondary,
+.btn-secondary:active,
+.btn-secondary.active,
+.show > .btn-secondary.dropdown-toggle {
+  color: black;
+  background-color: #fff8eb;
+  border-color: #ffe6b8;
+}
+
+.btn-check:checked + .btn-secondary:focus,
+.btn-check:active + .btn-secondary:focus,
+.btn-secondary:active:focus,
+.btn-secondary.active:focus,
+.show > .btn-secondary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem #ffe6b8;
+}
+
+.btn-secondary:disabled,
+.btn-secondary.disabled {
+  color: black;
+  background-color: #ffe6b8;
+  border-color: #ffe6b8;
+}
+
+.navbar {
+  padding: 5px 10px;
+}
+
+.btn-auth {
+  width: 140px;
+  font-weight: 600;
+}
+
 .color-teal {
   background-color: #a5c6f7;
+}
+
+.color-dark-blue {
+  background-color: #7386ff;
 }
 
 /*# sourceMappingURL=style.css.map */

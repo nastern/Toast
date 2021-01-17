@@ -2,7 +2,11 @@
 @import "./scss/todos";
 @import "./scss/validation";
 @import "./scss/controls";
+@import "./scss/navbar";
 
 .color-teal {
     background-color: $color-teal;
+}
+.color-dark-blue {
+    background-color: $color-dark-blue;
 }
