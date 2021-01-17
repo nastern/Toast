@@ -7,6 +7,8 @@
 !.vscode/launch.json
 !.vscode/extensions.json
 *.code-workspace
+node_modules/
+package-lock.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
