@@ -57,7 +57,7 @@ def createUser(email, password, name):
     'todos': [],
     'email': email,
     'name': name,
-    'toppings': ['avocado', 'bananas', 'butter', 'default'],
+    'toppings': ['avocado', 'bananas', 'butter', 'strawberry', 'bacon', 'egg', 'default'],
     'current_topping': 'default.png'
   })
 
