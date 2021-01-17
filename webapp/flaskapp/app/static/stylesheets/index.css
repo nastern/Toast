@@ -1,0 +1,54 @@
+/* Index.html styling */
+
+#top-background {
+    height: 100vh;
+    background: #A8C9FF;
+    padding-top: 5vh;
+}
+
+h1 {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bolder;
+    margin-top: 10vh;
+}
+
+h3 {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    padding-top: 10vh;
+}
+
+.rounded {
+    padding-top: 10vh;
+}
+
+.login-signup-form {
+    background: #7386FF;
+    border-radius: 47px;
+    border: none;
+    max-width: 400px;
+}
+
+.btn-signup {
+    background: #FFE6B8;
+    border-radius: 49px;
+}
+
+.input {
+    background: #F1F3FF;
+    border-radius: 15px;
+}
+
+p {
+    color: white;
+}
+
+.toaster {
+   max-width: 20vw;
+}
+
+.leaves {
+    max-width: 40vw;
+}

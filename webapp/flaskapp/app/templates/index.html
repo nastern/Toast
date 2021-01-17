@@ -1,17 +1,18 @@
 {% extends "layout.html" %}
 {% block content %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheets/index.css')}}">
 
-    <div class="row" style="height: 75vh; background: #A8C9FF;">
-        <div class='col-6'>
-            <div class="container">
-                <h1>Organize and Motivate with Toaster</h1>
+    <div class="row" id="top-background">
+        <div class="col-6 text-center">
+            <h1 class="pt-4 pb-4">Organize and Motivate with Toaster</h1>
+            <h3>A rewarding way to get things done!</h3>
+            <img class="rounded" src="{{ url_for('static', filename='images/toaster2.png') }}" style="max-width: 25vw;">
+        </div>
+        <div class="col-6">
+            {% include 'signup_template.html' %}
+            <div class="text-center">
+                <img class="rounded mt-4" src="{{ url_for('static', filename='images/leaves.png') }}" style="max-width: 30vw;">
             </div>
         </div>
-        <div class='col-6'>
-            {% include 'signup_template.html' %}
-        </div>
-
     </div>
-
-
 {% endblock %}
