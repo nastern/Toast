@@ -8,7 +8,7 @@
   display: flex;
   flex: 0 0 85%;
   padding: 5px;
-  background-color: #a8c9ff;
+  background-color: #a5c6f7;
 }
 
 .content-todos {
@@ -214,6 +214,10 @@ fieldset[disabled] .btn-primary.focus {
   color: black;
   background-color: #7386ff;
   border-color: #7386ff;
+}
+
+.color-teal {
+  background-color: #a5c6f7;
 }
 
 /*# sourceMappingURL=style.css.map */
