@@ -10,11 +10,8 @@ def LoginRequired(f):
     if 'userId' in session:
       return f(*args, **kwargs)
     else:
-      return redirect(url_for('login'))
+      return redirect(url_for('/'))
   return wrapper
-
-
-
 
 @app.route("/", methods=['GET', 'POST'])
 def index():
