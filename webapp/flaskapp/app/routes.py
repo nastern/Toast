@@ -10,7 +10,7 @@ def LoginRequired(f):
     if 'userId' in session:
       return f(*args, **kwargs)
     else:
-      return redirect(url_for('/'))
+      return redirect(url_for('index'))
   return wrapper
 
 @app.route("/", methods=['GET', 'POST'])
@@ -59,20 +59,22 @@ def signup():
 
   return render_template('index.html', err=user['error'])
 
-@LoginRequired
 @app.route("/logout", methods=['GET', 'POST'])
+@LoginRequired
 def logout():
   session.clear()
   return redirect(url_for('index'))
 
-@LoginRequired
+
 @app.route("/todos", methods=['GET', 'POST'])
+@LoginRequired
 def todos():
+  print('userId' in session)
   todos = api.getTodosForUser(session['userId'])
   return render_template('todos.html', todos=todos)
 
-@LoginRequired
 @app.route("/create_todo", methods=['POST'])
+@LoginRequired
 def create_todos():
   title = request.form.get('title')
   description = request.form.get('description')
