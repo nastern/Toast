@@ -52,8 +52,6 @@
 
 .todo-item {
   display: flex;
-  text-align: center;
-  justify-content: center;
 }
 
 .avatar-display {
@@ -84,6 +82,25 @@
 .create-todo-modal {
   text-align: left;
   padding: 10px 25px 10px 25px;
+}
+
+.image-stack::after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+
+.image-stack__item--top {
+  float: left;
+  width: 100%;
+  margin-right: -100%;
+  position: relative;
+  z-index: 1;
+}
+
+.image-stack__item--bottom {
+  float: right;
+  width: 100%;
 }
 
 .validation-msg {
