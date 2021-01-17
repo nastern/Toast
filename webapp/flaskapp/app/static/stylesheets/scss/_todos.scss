@@ -64,18 +64,38 @@
 // Modal stuff
 .btn-calendar {
     background-color: rgb(219, 219, 219);
-    border-top-right-radius: .25rem;
-    border-bottom-right-radius: .25rem;
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
 }
 .create-todo-modal {
     text-align: left;
-    padding: 10px 25px 10px 25px;
+    padding: 10px 40px 10px 40px;
+}
+.create-todo-modal .form-group {
+    margin-bottom: 1.5rem;
+}
+.modal-content .title-panel {
+    background-color: $color-dark-blue;
+    box-shadow: 0px 8px 10px -7px rgb(153, 153, 153);
+}
+.modal-form-header {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+}
+
+.modal-form-label {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
 }
 
 .image-stack::after {
-    content: ' ';
+    content: " ";
     display: table;
     clear: both;
 }

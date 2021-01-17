@@ -81,7 +81,30 @@
 
 .create-todo-modal {
   text-align: left;
-  padding: 10px 25px 10px 25px;
+  padding: 10px 40px 10px 40px;
+}
+
+.create-todo-modal .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.modal-content .title-panel {
+  background-color: #7386ff;
+  box-shadow: 0px 8px 10px -7px #999999;
+}
+
+.modal-form-header {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 40px;
+}
+
+.modal-form-label {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
 }
 
 .image-stack::after {
