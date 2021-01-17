@@ -6,7 +6,11 @@ InGrain is a web application made to encourage mental health.
 
 git clone (link)
 
-(optional: start a virtual environment)
+optional: start a virtual environment with 
+
+python3 -m venv venv 
+
+source venv/bin/activate
 
 cd toast/webapp/flaskapp
 
