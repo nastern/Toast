@@ -57,7 +57,7 @@ def createUser(email, password, name):
     'todos': [],
     'email': email,
     'name': name,
-    'toppings': [],
+    'toppings': ['avocado', 'bananas', 'butter', 'default'],
     'current_topping': 'default.png'
   })
 
@@ -187,4 +187,17 @@ def completeTodo(todoId):
   db = firestore.client()
   db.collection('todos').document(todoId).set({
     'completed': True
+  }, merge=True)
+
+
+def updateTopping(userId, topping):
+  '''
+    args:
+      todoId: the todo you want to mark as completed
+    returns:
+      none.
+  '''
+  db = firestore.client()
+  db.collection('users').document(userId).set({
+    'current_topping': topping
   }, merge=True)
