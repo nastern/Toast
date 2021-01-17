@@ -46,7 +46,8 @@
   <!-- navbar -->
   <header>
     <nav class="navbar color-dark-blue">
-        <a class="navbar-brand" href="{{ url_for('index') }}" draggable="false">
+        <a class="navbar-brand" href="{{ url_for('index') }}" draggable="false"> 
+          <!-- make above URL an if statement: only go to index if not logged in, and go to todos if logged in  -->
             <img src="{{ url_for('static', filename='images/toasticon.png') }}" 
                 width="80" height="70" class="d-inline-block align-top" alt="Toast"
                 draggable="false">
