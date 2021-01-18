@@ -35,28 +35,27 @@
                         {% for todoId, value in today_todos.items() %}
                         <div class="pl-2 pt-2">
                             <div class="row">
-                                <div class="col-2">
-                                    Image
-                                </div>
-                                <div class="col-4">
-                                    <h4><b>{{value.title}}</b></h4>
-                                </div>
-                                <br>
-                                <div class="col-5">
-                                    Due on: {{value.dueDate}}
-                                </div>
                                 <div class="col-1">
                                     <form class="form-signup" action="{{ url_for('complete_todo') }}" method="POST" role="form">
                                         <input type="text" name="todoId" id="todoId" class="form-control" value="{{todoId}}" hidden>
                                         <button type="submit">&#10003;</button>
                                     </form>
                                 </div>
+                                <div class="col-4">
+                                    <h4><b>{{value.title}}</b></h4>
+                                </div>
+                                <br>
+                                <div class="col-6">
+                                    <p style="color:darkgrey">{{value.description}}</p>
+                                </div>
+                                <div class="col-1">
+                                    <img src="{{ url_for('static', filename='images/grain.png') }}" alt="" height='40'>                                </div>
                             </div>
                             <div class="row">
-                                <div class="col-9">
-                                   <p>{{value.description}}</p>
+                                <div class="col-9"></div>
+                                <div class="col-3">
+                                    {{value.dueDate}}
                                 </div>
-                                <div class="col-3"></div>
                             </div>
                         </div>
                         <hr style="height:1px;border-width:0;color:rgb(167, 165, 165);background-color:rgb(167, 165, 165)">
@@ -69,7 +68,7 @@
                         <div class="pl-2 pt-2">
                             <div class="row">
                                 <div class="col-2">
-                                    Image
+                                    <img src="{{ url_for('static', filename='images/grain.png') }}" alt="" height='40'>
                                 </div>
                                 <div class="col-4">
                                     <h4><b>{{value.title}}</b></h4>
@@ -87,7 +86,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-9">
-                                   <p>{{value.description}}</p>
+                                   <p style="color: darkgrey">{{value.description}}</p>
                                 </div>
                                 <div class="col-3"></div>
                             </div>
@@ -102,7 +101,7 @@
                         <div class="pl-2 pt-2">
                             <div class="row">
                                 <div class="col-2">
-                                    Image
+                                    <img src="{{ url_for('static', filename='images/grain.png') }}" alt="" height='40'>
                                 </div>
                                 <div class="col-4">
                                     <h4><b>{{value.title}}</b></h4>
@@ -120,7 +119,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-9">
-                                   <p>{{value.description}}</p>
+                                   <p style="color:darkgrey">{{value.description}}</p>
                                 </div>
                                 <div class="col-3"></div>
                             </div>
@@ -135,7 +134,7 @@
                         <div class="pl-2 pt-2">
                             <div class="row">
                                 <div class="col-2">
-                                    Image
+                                    <img src="{{ url_for('static', filename='images/grain.png') }}" alt="" height='40'>
                                 </div>
                                 <div class="col-4">
                                     <h4><b>{{value.title}}</b></h4>
@@ -153,7 +152,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-9">
-                                   <p>{{value.description}}</p>
+                                   <p style="color: darkgrey;">{{value.description}}</p>
                                 </div>
                                 <div class="col-3"></div>
                             </div>
@@ -183,7 +182,7 @@
                     </div>
                 </div>
                 <div class="avatar-items">
-                    <h1>My Items</h1>
+                    <!-- <h1>My Items</h1> -->
                     {% for topping in owned_toppings %}
                         <form class="form-signup" action="{{ url_for('update_topping') }}" method="POST" role="form">
                             <input type="text" name="topping" id="topping" class="form-control" value="{{topping}}" hidden>
