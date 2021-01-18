@@ -1,6 +1,6 @@
 # InGrain 
 
-InGrain is a web application made to encourage mental health. 
+InGrain is a web application made to encourage mental health! Through a friendly interface and an adorable toast avatar to decorate, you are sure to be spending your time in a fun and positive environment.
 
 # How to run application locally
 
