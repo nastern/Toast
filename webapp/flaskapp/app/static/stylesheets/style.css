@@ -1,6 +1,5 @@
 .toolbar {
   flex: 0 0 15%;
-  padding: 10px;
   background-color: #ffe6b8;
 }
 
@@ -48,6 +47,13 @@
 .todos-controls {
   min-width: 95%;
   padding-top: 10px;
+}
+
+.todos-controls .btn {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 17px;
 }
 
 .todo-item {
@@ -107,10 +113,103 @@
   font-size: 16px;
 }
 
+.toolbar-tabs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+}
+
+.toolbar-tab {
+  display: flex;
+  width: 100%;
+  justify-content: left;
+  align-items: center;
+  height: 50px;
+}
+
+.toolbar-tab:hover {
+  background-color: #d3d1d1;
+}
+
+.tab-link {
+  display: flex;
+  align-items: center;
+  color: black;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  width: 100%;
+  height: 100%;
+  padding-left: 20px;
+}
+
+.tab-link.active {
+  background-color: #d3d1d1;
+}
+
+.toolbar-tab.active:hover {
+  background-color: #d3d1d1;
+}
+
+.tab-link:link {
+  color: inherit;
+}
+
+.tab-link:visited {
+  color: inherit;
+}
+
+.tab-link:hover {
+  text-decoration: none;
+}
+
 .image-stack::after {
   content: " ";
   display: table;
   clear: both;
+}
+
+.tab-underlined {
+  border-bottom: 1px solid #b9b9b9;
+}
+
+.toolbar-tab-btn {
+  display: flex;
+  width: 100%;
+  justify-content: left;
+  align-items: center;
+  height: 50px;
+}
+
+.toolbar-tab-btn:hover {
+  cursor: pointer;
+}
+
+.tab-btn {
+  display: flex;
+  align-items: center;
+  color: black;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  width: 100%;
+  height: 100%;
+  padding-left: 20px;
+}
+
+.tab-btn:hover {
+  background-color: #d3d1d1;
+}
+
+.todos-subcontainer {
+  display: block;
+}
+
+.todos-subcontainer.hidden {
+  display: none;
 }
 
 .image-stack__item--top {
