@@ -546,6 +546,12 @@ p {
   padding: 5vh 0vh 5vh 0;
 }
 
+.text-custom {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+}
+
 .color-teal {
   background-color: #a7c6f6;
 }
