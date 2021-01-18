@@ -28,7 +28,7 @@
 
                 </div>
                 <div class="todos-header">
-                    <h1>To-dos</h1>
+                    <h1>To-do's</h1>
                 </div>
                 <div class="todos-controls">
                     <button class="btn btn-primary w-100" data-toggle="modal" data-target="#createTodoModal">Add Task</button>
@@ -72,32 +72,32 @@
                     </div>
 
                     <!-- Previous -->
+                    
                     <div class="todos-subcontainer hidden" id="previousList">
                         {% for todoId, value in previous_todos.items() %}
                         <div class="pl-2 pt-2">
                             <div class="row">
-                                <div class="col-2">
-                                    <img src="{{ url_for('static', filename='images/grain.png') }}" alt="" height='40'>
-                                </div>
-                                <div class="col-4">
-                                    <h4><b>{{value.title}}</b></h4>
-                                </div>
-                                <br>
-                                <div class="col-5">
-                                    Due on: {{value.dueDate}}
-                                </div>
                                 <div class="col-1">
                                     <form class="form-signup" action="{{ url_for('complete_todo') }}" method="POST" role="form">
                                         <input type="text" name="todoId" id="todoId" class="form-control" value="{{todoId}}" hidden>
                                         <button type="submit">&#10003;</button>
                                     </form>
                                 </div>
+                                <div class="col-4">
+                                    <h4><b>{{value.title}}</b></h4>
+                                </div>
+                                <br>
+                                <div class="col-6">
+                                    <p style="color:darkgrey">{{value.description}}</p>
+                                </div>
+                                <div class="col-1">
+                                    <img src="{{ url_for('static', filename='images/grain.png') }}" alt="" height='40'>                                </div>
                             </div>
                             <div class="row">
-                                <div class="col-9">
-                                   <p style="color: darkgrey">{{value.description}}</p>
+                                <div class="col-9"></div>
+                                <div class="col-3">
+                                    {{value.dueDate}}
                                 </div>
-                                <div class="col-3"></div>
                             </div>
                         </div>
                         <hr style="height:1px;border-width:0;color:rgb(167, 165, 165);background-color:rgb(167, 165, 165)">
@@ -109,28 +109,27 @@
                         {% for todoId, value in upcoming_todos.items() %}
                         <div class="pl-2 pt-2">
                             <div class="row">
-                                <div class="col-2">
-                                    <img src="{{ url_for('static', filename='images/grain.png') }}" alt="" height='40'>
-                                </div>
-                                <div class="col-4">
-                                    <h4><b>{{value.title}}</b></h4>
-                                </div>
-                                <br>
-                                <div class="col-5">
-                                    Due on: {{value.dueDate}}
-                                </div>
                                 <div class="col-1">
                                     <form class="form-signup" action="{{ url_for('complete_todo') }}" method="POST" role="form">
                                         <input type="text" name="todoId" id="todoId" class="form-control" value="{{todoId}}" hidden>
                                         <button type="submit">&#10003;</button>
                                     </form>
                                 </div>
+                                <div class="col-4">
+                                    <h4><b>{{value.title}}</b></h4>
+                                </div>
+                                <br>
+                                <div class="col-6">
+                                    <p style="color:darkgrey">{{value.description}}</p>
+                                </div>
+                                <div class="col-1">
+                                    <img src="{{ url_for('static', filename='images/grain.png') }}" alt="" height='40'>                                </div>
                             </div>
                             <div class="row">
-                                <div class="col-9">
-                                   <p style="color:darkgrey">{{value.description}}</p>
+                                <div class="col-9"></div>
+                                <div class="col-3">
+                                    {{value.dueDate}}
                                 </div>
-                                <div class="col-3"></div>
                             </div>
                         </div>
                         <hr style="height:1px;border-width:0;color:rgb(167, 165, 165);background-color:rgb(167, 165, 165)">
@@ -142,28 +141,27 @@
                         {% for todoId, value in completed_todos.items() %}
                         <div class="pl-2 pt-2">
                             <div class="row">
-                                <div class="col-2">
-                                    <img src="{{ url_for('static', filename='images/grain.png') }}" alt="" height='40'>
-                                </div>
-                                <div class="col-4">
-                                    <h4><b>{{value.title}}</b></h4>
-                                </div>
-                                <br>
-                                <div class="col-5">
-                                    Due on: {{value.dueDate}}
-                                </div>
                                 <div class="col-1">
                                     <form class="form-signup" action="{{ url_for('complete_todo') }}" method="POST" role="form">
                                         <input type="text" name="todoId" id="todoId" class="form-control" value="{{todoId}}" hidden>
                                         <button type="submit">&#10003;</button>
                                     </form>
                                 </div>
+                                <div class="col-4">
+                                    <h4><b>{{value.title}}</b></h4>
+                                </div>
+                                <br>
+                                <div class="col-6">
+                                    <p style="color:darkgrey">{{value.description}}</p>
+                                </div>
+                                <div class="col-1">
+                                    <img src="{{ url_for('static', filename='images/grain.png') }}" alt="" height='40'>                                </div>
                             </div>
                             <div class="row">
-                                <div class="col-9">
-                                   <p style="color: darkgrey;">{{value.description}}</p>
+                                <div class="col-9"></div>
+                                <div class="col-3">
+                                    {{value.dueDate}}
                                 </div>
-                                <div class="col-3"></div>
                             </div>
                         </div>
                         <hr style="height:1px;border-width:0;color:rgb(167, 165, 165);background-color:rgb(167, 165, 165)">
