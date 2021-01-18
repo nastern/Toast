@@ -182,13 +182,14 @@
                     </div>
                 </div>
                 <div class="avatar-items">
-                    <!-- <h1>My Items</h1> -->
+                    <div class="d-flex flex-wrap w-100 justify-content-center align-items-center">
                     {% for topping in owned_toppings %}
-                        <form class="form-signup" action="{{ url_for('update_topping') }}" method="POST" role="form">
+                        <form class="form-signup p-2" action="{{ url_for('update_topping') }}" method="POST" role="form">
                             <input type="text" name="topping" id="topping" class="form-control" value="{{topping}}" hidden>
-                            <button type="submit">{{topping}}</button>
+                            <button class="btn btn-secondary " type="submit">{{topping}}</button>
                         </form>
                     {% endfor %}
+                    </div>
                 </div>
             </div>
         </div>

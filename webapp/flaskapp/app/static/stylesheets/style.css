@@ -62,7 +62,7 @@
 
 .avatar-display {
   display: flex;
-  flex: 0 0 60%;
+  flex: 0 0 70%;
   min-width: 95%;
   flex-direction: column;
   align-items: center;
