@@ -6,16 +6,16 @@
         <div class="toolbar flex-fill">
             <div class="toolbar-tabs" id="toolbarTabs" role="tablist">
                 <div class="toolbar-tab">
-                  <a class="tab-link active" id="today" data-toggle="tab" href="#all" role="tab">Today</a>
+                  <a class="tab-link active" id="today" data-toggle="tab" role="tab">Today</a>
                 </div>
                 <div class="toolbar-tab">
-                  <a class="tab-link" id="upcoming" data-toggle="tab" href="#today" role="tab">Upcoming</a>
+                  <a class="tab-link" id="upcoming" data-toggle="tab" role="tab">Upcoming</a>
                 </div>
                 <div class="toolbar-tab">
-                    <a class="tab-link" id="previous" data-toggle="tab" href="#today" role="tab">Previous</a>
+                    <a class="tab-link" id="previous" data-toggle="tab"role="tab">Previous</a>
                   </div>
                 <div class="toolbar-tab tab-underlined">
-                  <a class="tab-link" id="completed" data-toggle="tab" href="#completed" role="tab">Completed</a>
+                  <a class="tab-link" id="completed" data-toggle="tab"role="tab">Completed</a>
                 </div>
                 <div class="toolbar-tab-btn">
                     <a class="tab-btn" data-toggle="modal" data-target="#createCategoryModal"><i class="fas fa-plus pr-2"></i>New Category</a>
@@ -28,7 +28,139 @@
                     <h1>To-dos</h1>
                 </div>
                 <div class="todos-container">
+                    <!-- todos-subcontainer defaults to visiblity:hidden, override on the default container.
+                    id must match the list in javascript below  -->
+                    <!-- Today -->
+                    <div class="todos-subcontainer" id="todayList">
+                        {% for todoId, value in today_todos.items() %}
+                        <div class="pl-2 pt-2">
+                            <div class="row">
+                                <div class="col-2">
+                                    Image
+                                </div>
+                                <div class="col-4">
+                                    <h4><b>{{value.title}}</b></h4>
+                                </div>
+                                <br>
+                                <div class="col-5">
+                                    Due on: {{value.dueDate}}
+                                </div>
+                                <div class="col-1">
+                                    <form class="form-signup" action="{{ url_for('complete_todo') }}" method="POST" role="form">
+                                        <input type="text" name="todoId" id="todoId" class="form-control" value="{{todoId}}" hidden>
+                                        <button type="submit">&#10003;</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-9">
+                                   <p>{{value.description}}</p>
+                                </div>
+                                <div class="col-3"></div>
+                            </div>
+                        </div>
+                        <hr style="height:1px;border-width:0;color:rgb(167, 165, 165);background-color:rgb(167, 165, 165)">
+                    {% endfor %}
+                    </div>
 
+                    <!-- Previous -->
+                    <div class="todos-subcontainer hidden" id="previousList">
+                        {% for todoId, value in previous_todos.items() %}
+                        <div class="pl-2 pt-2">
+                            <div class="row">
+                                <div class="col-2">
+                                    Image
+                                </div>
+                                <div class="col-4">
+                                    <h4><b>{{value.title}}</b></h4>
+                                </div>
+                                <br>
+                                <div class="col-5">
+                                    Due on: {{value.dueDate}}
+                                </div>
+                                <div class="col-1">
+                                    <form class="form-signup" action="{{ url_for('complete_todo') }}" method="POST" role="form">
+                                        <input type="text" name="todoId" id="todoId" class="form-control" value="{{todoId}}" hidden>
+                                        <button type="submit">&#10003;</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-9">
+                                   <p>{{value.description}}</p>
+                                </div>
+                                <div class="col-3"></div>
+                            </div>
+                        </div>
+                        <hr style="height:1px;border-width:0;color:rgb(167, 165, 165);background-color:rgb(167, 165, 165)">
+                    {% endfor %}
+                    </div>
+
+                    <!-- Upcoming -->
+                    <div class="todos-subcontainer hidden" id="upcomingList">
+                        {% for todoId, value in upcoming_todos.items() %}
+                        <div class="pl-2 pt-2">
+                            <div class="row">
+                                <div class="col-2">
+                                    Image
+                                </div>
+                                <div class="col-4">
+                                    <h4><b>{{value.title}}</b></h4>
+                                </div>
+                                <br>
+                                <div class="col-5">
+                                    Due on: {{value.dueDate}}
+                                </div>
+                                <div class="col-1">
+                                    <form class="form-signup" action="{{ url_for('complete_todo') }}" method="POST" role="form">
+                                        <input type="text" name="todoId" id="todoId" class="form-control" value="{{todoId}}" hidden>
+                                        <button type="submit">&#10003;</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-9">
+                                   <p>{{value.description}}</p>
+                                </div>
+                                <div class="col-3"></div>
+                            </div>
+                        </div>
+                        <hr style="height:1px;border-width:0;color:rgb(167, 165, 165);background-color:rgb(167, 165, 165)">
+                    {% endfor %}
+                    </div>
+
+                    <!-- Complete -->
+                    <div class="todos-subcontainer hidden" id="completedList">
+                        {% for todoId, value in completed_todos.items() %}
+                        <div class="pl-2 pt-2">
+                            <div class="row">
+                                <div class="col-2">
+                                    Image
+                                </div>
+                                <div class="col-4">
+                                    <h4><b>{{value.title}}</b></h4>
+                                </div>
+                                <br>
+                                <div class="col-5">
+                                    Due on: {{value.dueDate}}
+                                </div>
+                                <div class="col-1">
+                                    <form class="form-signup" action="{{ url_for('complete_todo') }}" method="POST" role="form">
+                                        <input type="text" name="todoId" id="todoId" class="form-control" value="{{todoId}}" hidden>
+                                        <button type="submit">&#10003;</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-9">
+                                   <p>{{value.description}}</p>
+                                </div>
+                                <div class="col-3"></div>
+                            </div>
+                        </div>
+                        <hr style="height:1px;border-width:0;color:rgb(167, 165, 165);background-color:rgb(167, 165, 165)">
+                    {% endfor %}
+                    </div>
                 </div>
                 <div class="todos-controls">
                     <button class="btn btn-primary w-100" data-toggle="modal" data-target="#createTodoModal">Add Task</button>
@@ -206,13 +338,13 @@
             for (let ele of document.getElementsByClassName("tab-link")) {
                 ele.classList.remove("active");
             }
-            for (let ele of document.getElementsByClassName("todos-container")) {
-                ele.style.visibility = "hidden";
+            for (let ele of document.getElementsByClassName("todos-subcontainer")) {
+                ele.classList.add("hidden");
             }
             // Now set this tab active
             element.classList.toggle("active");
             // And set the list visible
-            $(`#${listEleId}`).style.visibility = "visible"
+            document.getElementById(listEleId).classList.toggle("hidden");
         });
     });
 </script>

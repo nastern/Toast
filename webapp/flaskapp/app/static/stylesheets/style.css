@@ -49,6 +49,13 @@
   padding-top: 10px;
 }
 
+.todos-controls .btn {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 17px;
+}
+
 .todo-item {
   display: flex;
 }
@@ -195,6 +202,14 @@
 
 .tab-btn:hover {
   background-color: #d3d1d1;
+}
+
+.todos-subcontainer {
+  display: block;
+}
+
+.todos-subcontainer.hidden {
+  display: none;
 }
 
 .image-stack__item--top {
