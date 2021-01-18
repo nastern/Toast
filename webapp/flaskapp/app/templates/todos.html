@@ -169,19 +169,21 @@
             <div class="content-avatar">
                 <div class="avatar-display">
                     <div class="container text-center">
-                        <h1>Avatar name</h1>
+                        <h1>Hi, I'm Toasty!</h1>
                         <div class="image-stack">
                             <div class="image-stack__item image-stack__item--top">
                                 <img src="{{ url_for('static', filename='images/'+overlay+'.png') }}">
                             </div>
                             <div class="image-stack__item image-stack__item--bottom">
-                                <img src="{{ url_for('static', filename='images/toast.gif') }}"style="max-width: 25vw;"">
+                                <img src="{{ url_for('static', filename='images/toast.gif') }}"style="max-width: 20vw;">
                             </div>
                         </div>
+                        <h2>Click on the buttons below to change my toppings!</h2>
+
                     </div>
                 </div>
                 <div class="avatar-items">
-                    <h1>Item list</h1>
+                    <h1>My Items</h1>
                     {% for topping in owned_toppings %}
                         <form class="form-signup" action="{{ url_for('update_topping') }}" method="POST" role="form">
                             <input type="text" name="topping" id="topping" class="form-control" value="{{topping}}" hidden>
