@@ -86,13 +86,13 @@ def todos():
 @app.route("/create_todo", methods=['POST'])
 @LoginRequired
 def create_todos():
-  title = request.form.get('title')
-  description = request.form.get('description')
-  date = request.form.get('date')
+  # title = request.form.get('title')
+  # description = request.form.get('description')
+  # date = request.form.get('date')
 
-  datetime_obj = datetime.strptime(date, '%m/%d/%Y')
+  # datetime_obj = datetime.strptime(date, '%m/%d/%Y')
 
-  api.createTodo(session['userId'], title, datetime_obj, description)
+  # api.createTodo(session['userId'], title, datetime_obj, description)
 
   return redirect(url_for('todos'))
 
